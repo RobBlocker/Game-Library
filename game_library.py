@@ -57,7 +57,7 @@ def search_by_title():
             print("----------------------")            
             
 
-def delete_game():
+def remove_game():
     title = input("What is the game title? ")
     if title not in games:
         print("*** Are you sure that's the right game? ***")
@@ -108,3 +108,22 @@ while keep_going:
     Q) Quit
     
     """)
+
+    choice = input("What would you like to do? ")
+    if choice == "1":
+        add_game()
+    elif choice == "2":
+        print_all()
+    elif choice == "3":
+        search_by_title()
+    elif choice == "4":
+        remove_game()
+    elif choice == "5":
+        save_database()
+    elif choice == "Q" or choice == "q":
+        quit()
+        keep_going = False
+    else:
+        print("*** SORRY WE CAN'T DO THAT FOR YOU ***\n")
+        
+print("Goodbye.")
