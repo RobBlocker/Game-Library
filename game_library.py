@@ -84,7 +84,7 @@ def update_game(key):
     notes = input("   Notes on the game?  ")
     games[title] = [system, genre, year, dev, pub, rate, 
                     players, price, finish, pur_date, notes]    
-
+games = {}
 datafile = open("gamelib.pickle", "rb")
 games = pickle.load(datafile)
 #print(games)
