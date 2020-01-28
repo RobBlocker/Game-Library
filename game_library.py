@@ -5,17 +5,6 @@
 
 import pickle
 
-games = {1:['FPS','Halo3','Bungee','Microsoft','xbox360','2007',
-            '10','either','30.00','Yes','1/15/2008',
-            'This game blows chunks.'],
-         2:['Sports','NHL19','EA Vancouver','EA Sports','ps4',
-            '2018','8','either','60.00','No','11/17/2019',
-            'Better controls and fun game as usual.']}
-
-datafile = open('game_library.pickle", "wb")
-pickle.dump(games, datafile)
-datafile.close()
-
 '''Runs prototype for our Game Library database program'''
 
 def add_game():
@@ -96,10 +85,10 @@ def update_game(key):
     games[title] = [system, genre, year, dev, pub, rate, 
                     players, price, finish, pur_date, notes]    
 
-pickle_file = open("datafile.pickle", "rb")
-people = pickle.load(pickle_file)
+datafile = open("gamelib.pickle", "rb")
+games = pickle.load(datafile)
 #print(games)
-pickle_file.close()
+datafile.close()
 
 keep_going = True
 
