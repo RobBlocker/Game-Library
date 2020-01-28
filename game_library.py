@@ -1,10 +1,20 @@
 #!/usr/bin/python3
 # game_library.py
 # Rob Blocker
-# 1/26/2020
+# 1/27/2020
 
 import pickle
-games = {}
+
+games = {1:['FPS','Halo3','Bungee','Microsoft','xbox360','2007',
+            '10','either','30.00','Yes','1/15/2008',
+            'This game blows chunks.'],
+         2:['Sports','NHL19','EA Vancouver','EA Sports','ps4',
+            '2018','8','either','60.00','No','11/17/2019',
+            'Better controls and fun game as usual.']}
+
+datafile = open('game_library.pickle", "wb")
+pickle.dump(games, datafile)
+datafile.close()
 
 '''Runs prototype for our Game Library database program'''
 
@@ -21,18 +31,18 @@ def print_all():
     key_list = games.keys()
     for key in key_list:
         print()
-        print("Title: ", key)
-        print("System: ", games[key][0])
-        print("Genre: ", games[key][1])
-        print("Release Date: ", games[key][2])
-        print("Developer: ", games[key][3])
-        print("Publisher: ", games[key][4])
-        print("Rating: ", games[key][5])
-        print("Players: ", games[key][6])
-        print("Price: ", games[key][7])
-        print("Finish: ", games[key][8])
-        print("Purchase Date: ", games[key][9])
-        print("Notes: ", games[key][10])
+        print("Genre: ", games[key][0])
+        print("Title: ", games[key][1])
+        print("Developer: ", games[key][2])
+        print("Publisher: ", games[key][3])        
+        print("System: ", games[key][4])
+        print("Release Date: ", games[key][5])
+        print("Rating: ", games[key][6])
+        print("Players: ", games[key][7])
+        print("Price: ", games[key][8])
+        print("Finish: ", games[key][9])
+        print("Purchase Date: ", games[key][10])
+        print("Notes: ", games[key][11])
         print("----------------------")
 
 def search_by_title():
@@ -42,20 +52,19 @@ def search_by_title():
         if title == games[key][1]:
             found_game = true
             print()
-            print("Title: ", key)
-            print("System: ", games[key][0])
-            print("Genre: ", games[key][1])
-            print("Release Date: ", games[key][2])
-            print("Developer: ", games[key][3])
-            print("Publisher: ", games[key][4])
-            print("Rating: ", games[key][5])
-            print("Players: ", games[key][6])
-            print("Price: ", games[key][7])
-            print("Finish: ", games[key][8])
-            print("Purchase Date: ", games[key][9])
-            print("Notes: ", games[key][10])
+            print("Genre: ", games[key][0])
+            print("Title: ", games[key][1])
+            print("Developer: ", games[key][2])
+            print("Publisher: ", games[key][3])        
+            print("System: ", games[key][4])
+            print("Release Date: ", games[key][5])
+            print("Rating: ", games[key][6])
+            print("Players: ", games[key][7])
+            print("Price: ", games[key][8])
+            print("Finish: ", games[key][9])
+            print("Purchase Date: ", games[key][10])
+            print("Notes: ", games[key][11])
             print("----------------------")            
-            
 
 def remove_game():
     title = input("What is the game title? ")
@@ -71,9 +80,10 @@ def save_database():
     pickle.dump(games, pickle_file)
     pickle_file.close()
         
-def update_game(title):
-    system = input("   What is the system? ")
+def update_game(key):
     genre = input("   What is the genre? ")
+    title = input("  What is the game title? ")
+    system = input("   What is the system? ")
     year = input("   What is their release year? ")
     dev = input("   Who is the game developer?  ")
     pub = input("   Who is the game publisher?  ")
