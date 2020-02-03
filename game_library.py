@@ -15,7 +15,7 @@ datafile.close()
 
 #Functions
 def add_and_edit():
-    #print("Running add_and_edit()")
+    #print("Running add and edit")
     
     while True:
         print('''
@@ -144,7 +144,7 @@ def edit():
             print("UH OH, THERE'S NO MATCHES!") 
             
 def print_all():
-    #print("Running print_all()")
+    #print("Running print all")
     games_key_list = games.keys()
     
     for key in games_key_list:
@@ -164,7 +164,7 @@ def print_all():
         print("-----------")    
     
 def search():
-    #print("Running search_by_title()")
+    #print("Running search by title")
     while True:
         print('''
         -----------------------
@@ -492,14 +492,14 @@ def remove_title():
         print(title, ":", entry[0], entry[1]+", removed.")
     
 def save_library():
-    #print("Running save_library()")
+    #print("Running save library")
     datafile = open("gamelib.pickle", "wb")
     pickle.dump(games, datafile)
     datafile.close()    
     print("File saved!")
     
 def quit():
-    #print("Running quit()")
+    #print("Running quit")
     confirm = input("Would you like to save? Y/N ")
     if confirm.lower() == "y":
         datafile = open("gamelib.pickle", "wb")
