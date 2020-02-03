@@ -39,6 +39,7 @@ def add_and_edit():
         confirmation = input("Would you like to continue editing? ")
         if confirmation.lower() == "n":
             break
+        
 def add():
     new_key = len(games) + 1
     valid = False
@@ -72,7 +73,7 @@ def add():
         print("Purchase Year: ", purchase)
         print("Notes: ", notes)
         answer = input("Is all of this information correct? ")
-        if answer in ("Yes","yes","Y","y"):
+        if answer.lower() == "y":
             valid = True
             games[new_key] = new_entry 
 
@@ -136,7 +137,7 @@ def edit():
             print("Notes: ", edit_entry[11])
             
             answer = input("Is all of this information correct? Y/N ")
-            if answer in ("Yes","yes","Y","y"):
+            if answer.lower() == "y":
                 valid = True
                 edit_entry = games[edit_key]
         else:
@@ -214,7 +215,7 @@ def search():
         
         search_input = input("Would you like to continue searching? Y/N ")
         
-        if search_input == 'N' or search_input == 'n':
+        if search_input.lower() == 'n':
             break
 
             
@@ -499,12 +500,16 @@ def save_library():
     
 def quit():
     #print("Running quit()")
-    confirm = input("Are you sure you want to quit? Y/N ")
+    confirm = input("Would you like to save? Y/N ")
     if confirm.lower() == "y":
-        print("Goodbye!")
+        datafile = open("gamelib.pickle", "wb")
+        pickle.dump(games, datafile)
+        datafile.close()    
+        print("File saved! Goodbye!!")        
         exit()
-    elif confirm.lower() == "n":
-        pass
+    else:
+        print("Okay, goodbye!")
+        exit()
 
 #Main Menu    
 while True:
