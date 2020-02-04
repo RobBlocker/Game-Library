@@ -483,14 +483,22 @@ def search_by_purchaseyear():
     if not found_one:
         print("NO MATCHES FOUND!")    
     
-def remove_title():
-    title = input("What is the game title? ")
-    if title not in games:
-        print("*** Are you sure that's the right game? ***")
-    else:
-        entry = games.pop(title)
-        print(title, ":", entry[0], entry[1]+", removed.")
-    
+def remove_game():
+    print_all(with_keys = True)
+    selected_key = input("What is the game you would like to delete? ")
+    try:
+        selected_key = int(selected_key)
+        print_game(games[selected_key])
+        confirm_deletion = input("Are you sure you want to remove? ")
+        if confirm.deletion.lower() == "y":
+            for keys in range(1, len(games)+1):
+                if keys >= selected_key and keys != len(games):
+                    games[keys] = games[keys+1]
+                if keys == len(games):
+                    games.pop(key)
+    except:
+        print("It doesn't look like you have that game in here ")
+        
 def save_library():
     #print("Running save library")
     datafile = open("gamelib.pickle", "wb")
